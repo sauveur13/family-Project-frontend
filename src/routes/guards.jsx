@@ -25,5 +25,5 @@ export function PublicOnlyRoute({ children }) {
   const { status } = useAuth();
   if (status === 'loading') return <PageLoader label="Loading…" />;
   if (status === 'authenticated') return <Navigate to={ROUTES.dashboard} replace />;
-  return children;
+  return children ?? <Outlet />;
 }
